@@ -1,13 +1,12 @@
 package ar.edu.unlu.poo;
-
+import java.util.ArrayList;
 import java.util.List;
 
 public class EcuacionSegundoGrado {
     private Double y;
+    private Double x = 0.0;
     private Double a;
-    private Double x1 = 0.0;
     private Double b;
-    private Double x2 = 0.0;
     private Double c;
 
     public EcuacionSegundoGrado (Double a, Double b, Double c) {
@@ -15,34 +14,23 @@ public class EcuacionSegundoGrado {
         this.b = b;
         this.c = c;
     }
-
-    public void setX1 (Double x1) {
-        this.x1 = x1;
+    
+    public Double[] calcularRaices () {
+        Double[] raices = new Double[2];
+        Double discriminante = (double) (Math.pow(b, 2) - 4 * a * c);
+        if (discriminante > 0) {
+            raices[0] = (double) ((-b + Math.sqrt(discriminante)) / (2 * a));
+            raices[1] = (double) ((-b - Math.sqrt(discriminante)) / (2 * a));
+            return raices;
+        } else if (discriminante == 0) {
+            raices[0] = (double) ((-b + Math.sqrt(discriminante)) / (2 * a));
+            raices[1] = (double) raices[0];
+            return raices;
+        } else if (discriminante < 0);
+            return null;
     }
 
-    public Double getX1 () {
-        return x1;
+    public Double calcularImagen (Double x) {
+        return (a * Math.pow(x, 2) + b * x + c);
     }
-
-    public void setX2 (Double x2) {
-        this.x2 = x2;
-    }
-
-    public Double getX2 () {
-        return x2;
-    }
-
-    public Double getA() {
-        return a;
-    }
-
-    public Double getB() {
-        return b;
-    }
-
-    public Double getC() {
-        return c;
-    }
-
-    public List 
 }
