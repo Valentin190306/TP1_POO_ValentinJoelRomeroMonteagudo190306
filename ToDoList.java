@@ -5,7 +5,23 @@ import ar.edu.unlu.poo.Tarea;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+/*
+Ejercicio 5: Lista de Tareas
+Una tarea es una acción que debe realizarse. Habitualmente todas las tareas que tenemos pendientes las ponemos en una lista, y en la medida que las vamos cumpliendo, las vamos "tachando". Queremos empezar a construir una app que gestione esta lista de tareas.
+Una tarea es una descripción, que además contiene una prioridad y un estado (Si está completa o incompleta). Además, una tarea puede tener una fecha límite. Si la tarea sobrepasa esta fecha y su estado es incompleta, vamos a decir que la tarea está vencida.
+A una tarea, le podemos modificar su descripción, cambiarle la prioridad y avisar que está terminada. Además, podemos querer mostrar la tarea, en cuyo caso muestra la descripción. Pero, si la tarea está terminada, el mensaje debería iniciar con el string "(Vencida)...".
+A una tarea queremos poder preguntarle si se encuentra vencida o no, como así también le podemos consultar si está completa o no.
+Se pide:
 
+    _ Generar un diagrama de clase simple de la clase Tarea.
+    _ Generar el código en Java que represente la tarea. Debe incluir todos los métodos derivados de la descripción.
+    _ Generar un programa en Java que haga uso de la clase Tarea, y cree las siguientes tareas:
+        + "Ir al supermercado mañana". Debe tener la fecha límite establecida y estar incompleta.
+        + "Consultar repuesto del auto". Debe tener la fecha límite para ayer y estar completa.
+        + "Ir al cine a ver la nueva película de Marvel". Debe tener fecha límite de ayer y estar incompleta.
+
+Este último programa debe configurar el estado especificado en cada objeto, y mostrar sus mensajes respectivos.
+*/
 public class ToDoList {
     public static void main (String[] args) {
         ListaEnlazadaDoble ToDoList = new ListaEnlazadaDoble();
