@@ -1,5 +1,8 @@
 import ar.edu.unlu.poo.Pila;
-
+/*
+Ejercicio 3: Pila
+Implemente el TAD Pila. Defina cuál debe ser la interfaz a implementar; cuantos objetos están involucrados en la solución; responsabilidades de cada objeto involucrado y ejemplifique el uso.
+*/
 public class MainPila {
   public static void main (String[] args) {
     int a = 123;
