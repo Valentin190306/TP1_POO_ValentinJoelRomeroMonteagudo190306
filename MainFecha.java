@@ -1,23 +1,21 @@
 import ar.edu.unlu.poo.OperacionConFechas;
 import java.time.temporal.ChronoUnit;
- /*
- Ejercicio 9
+/*
+Ejercicio 9
 Se requiere crear una clase que ayude a realizar operaciones con fechas. Las operaciones requeridas son:
 
     1_ Devolver una fecha a partir de un string, con un formato específico. Los formatos pueden ser 2:
-
-    - dd-MM-yyyy
-    - MM-dd-yyyy
+       - dd-MM-yyyy
+       - MM-dd-yyyy
 
     2_ Determinar si una fecha se encuentra entre otras dos fechas.
     3_ Determinar si una fecha es mayor a otra fecha.
     4_ Determinar si una fecha es menor a otra fecha.
 
 Objetivos:
-
     1_ Definir estructura y comportamiento.
     2_ Crear una clase que la utilice enviando mensajes para probar el correcto funcionamiento.
-  */
+*/
 public class MainFecha {
     public static void main (String[] args) {
         LocalDate fecha = LocalDate.now();
