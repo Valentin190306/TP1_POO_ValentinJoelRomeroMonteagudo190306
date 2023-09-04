@@ -1,5 +1,8 @@
 import ar.edu.unlu.poo.Cola;
-
+/*
+Ejercicio 4: Cola
+Implemente el TAD Cola. Defina cuál debe ser la interfaz a implementar; cuantos objetos están involucrados en la solución; responsabilidades de cada objeto involucrado y ejemplifique el uso.
+*/
 public class MainCola {
 
     public static void main (String[] args) {
