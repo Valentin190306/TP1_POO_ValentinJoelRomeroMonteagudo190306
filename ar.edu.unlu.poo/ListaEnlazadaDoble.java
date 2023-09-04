@@ -1,5 +1,8 @@
 package ar.edu.unlu.poo;
-
+/*
+Ejercicio 2: Lista enlazada doble
+Teniendo implementada la TAD Lista enlazada simple orientada a objetos, implemente la TAD Lista enlazada doble.
+*/
 public class ListaEnlazadaDoble {
     private Nodo primero;
 
