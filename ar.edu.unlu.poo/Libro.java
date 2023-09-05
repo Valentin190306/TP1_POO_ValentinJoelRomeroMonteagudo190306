@@ -72,6 +72,10 @@ public class Libro {
             return false;
         }
     }
+    
+    public void devolver () {
+        this.num_ejemplares++;
+    }
 
     public String descripcion () {
         return "El libro "+ getTitulo() +" creado por el autor "+ getAutor() +" tiene "+ getNum_pag()
