@@ -1,4 +1,4 @@
-import ar.edu.unlu.poo.TareaConRecordatorio;
+import ar.edu.unlu.poo.Tarea;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -17,9 +17,9 @@ public class MainTareaConRecordatorio {
         LocalDate fechaVencimiento = LocalDate.now().plus(5, ChronoUnit.DAYS);
         LocalDate fechaRecordatorio = LocalDate.now();
 
-        TareaConRecordatorio tarea = new TareaConRecordatorio("Hacer las compras", fechaVencimiento, "INDIFERENTE", fechaRecordatorio);
+        Tarea tarea = new Tarea("Compras", "Hacer las compras", fechaVencimiento, Tarea.prioridades.MINIMO, fechaRecordatorio);
 
         System.out.println(" > Descripcion: "+ tarea.mostrar());
-        System.out.println(" > Actualizar prioridad: "+ tarea.actualizarPrioridad());
+        System.out.println(" > Actualizar prioridad: "+ tarea.getPrioridad().toString());
     }
 }
