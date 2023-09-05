@@ -75,9 +75,11 @@ public class Tarea {
 
     public String mostrar () {
         String descripcion_tarea;
-        if (LocalDate.now().isAfter(fechaVencimiento) && estado != estados.COMPLETADO) {
-            descripcion_tarea = "(Vencido) " + descripcion;
-            return descripcion_tarea;
-        } else return descripcion;
+        if (fechaVencimiento != null)
+            if (LocalDate.now().isAfter(fechaVencimiento) && estado != estados.COMPLETADO) {
+                descripcion_tarea = "(Vencido) " + descripcion;
+                return descripcion_tarea;
+            }
+        return descripcion;
     }
 }

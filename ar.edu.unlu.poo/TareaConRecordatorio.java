@@ -20,7 +20,7 @@ public class TareaConRecordatorio extends Tarea {
 
     public String mostrar () {
         String descripcion_tarea;
-        if (fechaRecordatorio != null)
+        if (fechaRecordatorio != null && getFechaVencimiento() != null)
             if ((fechaRecordatorio.isEqual(LocalDate.now()) || fechaRecordatorio.isAfter(LocalDate.now())) && LocalDate.now().isBefore(getFechaVencimiento())) {
                 descripcion_tarea = "(por vencer) " + getDescripcion();
                 return descripcion_tarea;
