@@ -47,5 +47,13 @@ public class MainAdministradorDeTareas {
             auxiliar = lista.get(i);
             System.out.println(" > "+ auxiliar.mostrar());
         }
+
+        System.out.println("-- Tareas no vencidas ordenadas (prioridad de mayor a menor, fechaVencimiento de mas lejano a mas cercano) --");
+        List<Tarea> lista1 = admin.ordenarTareasNoVencidas();
+
+        for (int i = 0 ; i < lista.size() ; i++) {
+            auxiliar = lista.get(i);
+            System.out.println(" > " + auxiliar.mostrar());
+        }
     }
 }
