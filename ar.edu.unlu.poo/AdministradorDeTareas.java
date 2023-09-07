@@ -5,24 +5,53 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class AdministradorDeTareas {
-    private final List<Tarea> listaDeTareas = new ArrayList<>();
+    private List<Tarea> listaDeTareas = new ArrayList<>();
+    private List<Colaborador> colaboradores = new ArrayList<>();
 
-    public void crearTarea (String descripcion, LocalDate fechaVencimiento, Enum prioridad) {
+    public Tarea crearTarea (String descripcion, LocalDate fechaVencimiento, Enum prioridad) {
         Tarea nuevaTarea = new Tarea(descripcion, fechaVencimiento, prioridad);
         listaDeTareas.add(nuevaTarea);
+        return nuevaTarea;
     }
 
-    public void crearTarea (String titulo, String descripcion, LocalDate fechaVencimiento, Enum prioridad, LocalDate fechaRecordatorio) {
+    public Tarea crearTarea (String titulo, String descripcion, LocalDate fechaVencimiento, Enum prioridad, LocalDate fechaRecordatorio) {
         Tarea nuevaTarea = new Tarea(titulo, descripcion, fechaVencimiento, prioridad, fechaRecordatorio);
         listaDeTareas.add(nuevaTarea);
+        return nuevaTarea;
+    }
+
+    public Colaborador crearColaborador (String nombre, String apellido, String rol) {
+        Colaborador nuevoColaborador = new Colaborador(nombre, apellido, rol);
+        colaboradores.add(nuevoColaborador);
+        return nuevoColaborador;
     }
 
     public void agregarTarea(Tarea tarea) {
         listaDeTareas.add(tarea);
     }
 
+    public void eliminarTarea (Tarea tarea) {
+        listaDeTareas.remove(tarea);
+    }
+
+    public void agregarColaborador (Colaborador colaborador) {
+        colaboradores.add(colaborador);
+    }
+
+    public void eliminarColaborador (Colaborador colaborador) {
+        colaboradores.remove(colaborador);
+    }
+
     public List<Tarea> getListaDeTareas () {
         return listaDeTareas;
+    }
+
+    public List<Tarea> tareasRealizadasPorColaborador (Colaborador colaborador) {
+        if (colaboradores.contains(colaborador)) {
+            List<Tarea> tareasRealizadas = listaDeTareas.stream().filter(tarea -> tarea.getEstado().toString().startsWith("REALIZADO")).toList();
+            List<Tarea> tareasDelColaborador = tareasRealizadas.stream().filter(tarea -> tarea.getColaboradorFinal().equals(colaborador)).toList();
+            return tareasDelColaborador;
+        } else return null;
     }
 
     public List<Tarea> ordenarTareasNoVencidas () {
@@ -31,18 +60,21 @@ public class AdministradorDeTareas {
         return tareas_no_vencidas;
     }
 
+    public boolean realizar (Tarea tarea, Colaborador colaborador) {
+        if (listaDeTareas.contains(tarea) && colaborador != null) {
+            tarea.tachar();
+            if (colaboradores.contains(colaborador))
+                colaboradores.add(colaborador);
+            tarea.setColaboradorFinal(colaborador);
+            return true;
+        } else return false;
+    }
+
     public boolean realizar (Tarea tarea) {
-        Tarea auxiliar = null;
-
-        for (Tarea listaDeTarea : listaDeTareas) {
-            auxiliar = listaDeTarea;
-            if (auxiliar == tarea) {
-                tarea.tachar();
-                break;
-            }
-        }
-
-        return tarea.getEstado() == Tarea.estados.REALIZADO;
+        if (listaDeTareas.contains(tarea)) {
+            tarea.tachar();
+            return true;
+        } else return false;
     }
 
     public Tarea buscar (String titulo) {
@@ -53,7 +85,6 @@ public class AdministradorDeTareas {
             if (auxiliar.getTitulo().equals(titulo))
                 break;
         }
-
         return auxiliar;
     }
 

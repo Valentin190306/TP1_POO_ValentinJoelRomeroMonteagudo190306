@@ -10,18 +10,12 @@ public class Tarea {
     private LocalDate fecha;
     private LocalDate fechaVencimiento;
     private LocalDate fechaRecordatorio;
+    private LocalDate fechaFinalozacion = null;
+    private Colaborador colaboradorFinal = null;
 
-    public enum prioridades {
-        MINIMO,
-        MEDIO,
-        MAXIMO
-    }
+    public enum prioridades {MINIMO, MEDIO, MAXIMO}
 
-    public enum estados {
-        REALIZADO,
-        NO_REALIZADO,
-        VENCIDO
-    }
+    public enum estados {REALIZADO, NO_REALIZADO, VENCIDO}
 
     public Tarea () {
         setTitulo(null);
@@ -82,6 +76,7 @@ public class Tarea {
 
     public void tachar () {
         this.estado = estados.REALIZADO;
+        this.fechaFinalozacion = LocalDate.now();
     }
 
     public Enum getEstado () {
@@ -111,6 +106,14 @@ public class Tarea {
         return fechaRecordatorio;
     }
 
+    public void setColaboradorFinal (Colaborador colaborador) {
+        this.colaboradorFinal = colaborador;
+    }
+
+    public Colaborador getColaboradorFinal () {
+        return colaboradorFinal;
+    }
+
     public boolean estaVencida () {
         return LocalDate.now().isAfter(fechaVencimiento);
     }
@@ -120,16 +123,20 @@ public class Tarea {
     }
 
     public String mostrar () {
-        String descripcion_tarea = "";
+        String descripcion_tarea;
         if (getEstado() == estados.VENCIDO) {
             descripcion_tarea = "(Vencido) " + getTitulo() + " : " + descripcion;
             return descripcion_tarea;
         }
-        else if (fechaRecordatorio != null && fechaVencimiento != null) {
+        else if (fechaRecordatorio != null && fechaVencimiento != null && getEstado() != estados.REALIZADO) {
             if ((fechaRecordatorio.isEqual(LocalDate.now()) || fechaRecordatorio.isAfter(LocalDate.now())) && LocalDate.now().isBefore(fechaVencimiento)) {
                 descripcion_tarea = "(por vencer) " + getTitulo() + " : " + descripcion;
                 return descripcion_tarea;
             }
+        }
+        else if (getEstado() == estados.REALIZADO) {
+            descripcion_tarea = "(realizado) " + getTitulo() + " : " + descripcion;
+            return descripcion_tarea;
         }
         descripcion_tarea = getTitulo() + " : " + descripcion;
         return descripcion;
