@@ -138,7 +138,6 @@ public class Tarea {
             descripcion_tarea = "(realizado) " + getTitulo() + " : " + descripcion;
             return descripcion_tarea;
         }
-        descripcion = getTitulo() + " : " + descripcion;
-        return descripcion;
+        return getTitulo() + " : " + descripcion;
     }
 }
