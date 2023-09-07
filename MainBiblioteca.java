@@ -5,10 +5,10 @@ Ejercicio 6
 Necesitamos implementar la clase Libro para un sistema de administración de bibliotecas y todas las clases relacionadas que correspondan. Generalmente las búsquedas se hacen por Título o Autor, es casi imposible que quieran buscar un libro por ISBN y en ciertos casos no se tiene el dato para completarlo. Si solo queda un Ejemplar disponible, no se puede prestar el libro porque tiene que quedar disponible para consultar dentro de la biblioteca. El sistema debería mostrar la descripción del libro como: El libro <su_titulo> creado por el autor <su_autor> tiene <num_paginas> páginas, quedan <num_ejemplares> disponibles y se prestaron <num_ejemplares_prestados>. También se necesita determinar la cantidad de préstamos realizados, teniendo en cuenta todos los libros disponibles.
 Objetivos:
 
-    _ Definir responsabilidad, estructura y comportamiento de las clases.
-    _ Crear una clase que utilice a las anteriores y que cree 2 objetos Libro (los valores que se quieran), mostrarlos por pantalla e indique cuál de los 2 tiene más páginas.
-    _ Intentar prestar un libro con 10 ejemplares y uno con 1 solo ejemplar.
-    _ Mostrar cantidad total hecha de préstamos.
+    1_ Definir responsabilidad, estructura y comportamiento de las clases.
+    2_ Crear una clase que utilice a las anteriores y que cree 2 objetos Libro (los valores que se quieran), mostrarlos por pantalla e indique cuál de los 2 tiene más páginas.
+    3_ Intentar prestar un libro con 10 ejemplares y uno con 1 solo ejemplar.
+    4_ Mostrar cantidad total hecha de préstamos.
 */
 public class MainBiblioteca {
     public static void main (String[] args) {
